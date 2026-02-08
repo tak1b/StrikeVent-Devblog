@@ -52,7 +52,7 @@ image: "/images/devblog-01/first-ever-sketch.png",
   {
     id: "welcome",
     slug: "welcome-to-strikevent-devblog",
-    date: "2025-10-XX",
+    date: "2025-10-15",
     tag: "ANNOUNCEMENT",
     title: "Welcome to the StrikeVent Devblog",
     summary:
@@ -83,7 +83,7 @@ export const SITE_CONFIG = {
   description:
     "Follow the development of StrikeVent. New posts on gameplay, tech, art, and everything in between.",
   socials: {
-    twitter: "#",   // Replace with your URLs
+    twitter: "#",  
     discord: "#",
     youtube: "#",
   },
