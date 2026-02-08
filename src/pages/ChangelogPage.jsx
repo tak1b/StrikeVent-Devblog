@@ -2,14 +2,15 @@ export default function ChangelogPage() {
   // Add your changelog entries here
   const entries = [
 
+    //0.0.3
+
     //0.0.2
     {
       version: "0.0.2",
       date: "2025-10-21",
       changes: [
-        "[GAME] Project Approved",
+        "[GAME] Project Approvedn by Supervisor",
         "[GAME] Purpouse shifted from \"Player Psychology\" to \"Improving Netcode\" ",
-        
       ],
     },
 

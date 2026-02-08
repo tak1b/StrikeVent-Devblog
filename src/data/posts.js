@@ -4,15 +4,67 @@
 // Images: set to null for a gradient placeholder, or use a URL string.
 
 const posts = [
+
+
+  //Devblog-03
+  {
+    id: "devblog-03",
+    slug: "approved",
+    date: "2025-10-28",
+    tag: "UPDATE",
+    title: "Devblog #03 — APPROVED TO GO AHEAD!!",
+    summary:
+      "APPROVED FOR DEVELOPMENT.",
+    body: `Good news everyone, our project proposal was approved! We know we already said our project was approved by our supervisor but this approval is from a board of professors
+    that we had to pitc our idea to. StrikeVent is now offically under development!`,
+    image: "/images/devblog-03/happy-cat.jpg",
+  },
   
+  //Devblog-02
+  {
+    id: "devblog-02",
+    slug: "early-design-concept-sketches",
+    date: "2025-10-26",
+    tag: "BEHIND_THE_SCENES",
+    title: "Devblog #02 — Early Design Sketches and Concepts",
+    summary:
+      "Collection of early sketches that were made such as character select screen and early character sprites.",
+    body: `This a quick devblog that we want to post to show the very minimal early sketches that we have done so far. We don't have much artwise right now due to studying for exams, but everything that
+    needs to be done is still on track.
+    
+  ## Main Menu Concept
+  ![Character Select Concept](/images/devblog-02/menu.png)
+    
+  This is the menu style that we have settled on. It's inspired by a lot of other fighting games such as Persona 5 Arena and 2XKO. 
+  The idea is that both players' characters are displayed facing each other in a VS screen format, which is pretty standard for the genre but we wanted to give it our own flair.
+
+  The character select icons sit in the middle with P1 and P2 indicators, and we've got a back button in the top left for navigation. 
+  The VS graphic up top is something we want to make feel punchy and animated in the final version. 
+  The splatter textures in the background are there to give it a raw, aggressive energy that fits the tone of the game.
+
+  It's still early days for the art so everything here is placeholder, but the layout and flow of the screen is what we're going for. 
+  We'll keep iterating on the visuals as the character designs get more fleshed out.
+
+  ## A New Challenger Approaches
+  ![Ai Design Concept](/images/devblog-02/ai_mini.png)
+  This is one of our earliest character concepts, Ai. She's a melee based fighter who we want to have a moderate learning curve.
+  We're still figuring out the art style but we wanted to get something down to start building the character select screen around. 
+  The design is intentionally simple for now since we're more focused on getting the gameplay and netcode working first.
+
+  Once we've locked in the core mechanics we'll circle back and start refining the character art properly. 
+  For now though, it's nice to have something visual to work with instead of just coloured rectangles.
+    `,
+    image: "/images/devblog-02/anime-sketching.gif",
+  },
   
+
   //Devblog-01
   {
-    id: "devlog-001",
-    slug: "devlog-1-initial design concepts",
+    id: "devblog-01",
+    slug: "initial-idea-proposal",
     date: "2025-10-21",
     tag: "BEHIND_THE_SCENES",
-    title: "Devlog #1 — Initial Design Concepts, Sketches and Getting Approved",
+    title: "Devblog #01 — Initial Design Concepts, Sketches and Getting Approved",
     summary:
       "How we came up with our inital idea and getting approval from our project supervisor.",
     body: `
