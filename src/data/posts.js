@@ -41,7 +41,7 @@ const posts = [
     slug: "early-design-concept-sketches",
     date: "2025-10-26",
     tag: "BEHIND_THE_SCENES",
-    title: "Devblog #02 — Early Design Sketches and Concepts",
+    title: "Devlog #02 — Early Design Sketches and Concepts",
     summary:
       "Collection of early sketches that were made such as character select screen and early character sprites.",
     body: `This a quick devblog that we want to post to show the very minimal early sketches that we have done so far. We don't have much artwise right now due to studying for exams, but everything that
@@ -79,7 +79,7 @@ const posts = [
     slug: "initial-idea-proposal",
     date: "2025-10-21",
     tag: "BEHIND_THE_SCENES",
-    title: "Devblog #01 — Initial Design Concepts, Sketches and Getting Approved",
+    title: "Devlog #01 — Initial Design Concepts, Sketches and Getting Approved",
     summary:
       "How we came up with our inital idea and getting approval from our project supervisor.",
     body: `
