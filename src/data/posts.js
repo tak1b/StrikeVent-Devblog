@@ -5,13 +5,13 @@
 
 const posts = [
 
-  //Devblog-04
+  //Devlog-04
   {
-    id: "devblog-04",
+    id: "devlog-04",
     slug: "networking",
     date: "2026-01-25",
     tag: "DEVLOG",
-    title: "Devblog #04 — StrikeVent NET Alpha Complete",
+    title: "Devlog #04 — StrikeVent NET Alpha Complete",
     summary:
       "StikeVent NET alpha development completed",
     body: `Hello guys, we are proud to announce that StrikeVent NET alpha is now complete. Once our project is completed we will release it to the public.
@@ -21,13 +21,13 @@ const posts = [
     image: "/images/devblog-03/happy-cat.jpg",
   },
 
-  //Devblog-03
+  //Devlog-03
   {
-    id: "devblog-03",
+    id: "devlog-03",
     slug: "approved",
     date: "2025-10-28",
     tag: "UPDATE",
-    title: "Devblog #03 — APPROVED TO GO AHEAD!!",
+    title: "Devlog #03 — APPROVED TO GO AHEAD!!",
     summary:
       "APPROVED FOR DEVELOPMENT.",
     body: `Good news everyone, our project proposal was approved! We know we already said our project was approved by our supervisor but this approval is from a board of professors
@@ -35,9 +35,9 @@ const posts = [
     image: "/images/devblog-03/happy-cat.jpg",
   },
   
-  //Devblog-02
+  //Devlog-02
   {
-    id: "devblog-02",
+    id: "devlog-02",
     slug: "early-design-concept-sketches",
     date: "2025-10-26",
     tag: "BEHIND_THE_SCENES",
@@ -73,9 +73,9 @@ const posts = [
   },
   
 
-  //Devblog-01
+  //Devlog-01
   {
-    id: "devblog-01",
+    id: "devlog-01",
     slug: "initial-idea-proposal",
     date: "2025-10-21",
     tag: "BEHIND_THE_SCENES",
@@ -115,7 +115,7 @@ By the end of the meeting he said he'd be happy to take us on as our project sup
 image: "/images/devblog-01/first-ever-sketch.png",
   },
 
-  // Devblog-00
+  // Devlog-00
   {
     id: "welcome",
     slug: "welcome-to-strikevent-devblog",
