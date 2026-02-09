@@ -121,7 +121,7 @@ image: "/images/devblog-01/first-ever-sketch.png",
     slug: "welcome-to-strikevent-devblog",
     date: "2025-10-15",
     tag: "ANNOUNCEMENT",
-    title: "Welcome to the StrikeVent Devblog",
+    title: "Welcome to the StrikeVent Devlog",
     summary:
       "Follow along as we build StrikeVent from the ground up.",
     body: `Welcome! This is where we'll be posting development updates, behind-the-scenes looks, and patch notes for StrikeVent.
