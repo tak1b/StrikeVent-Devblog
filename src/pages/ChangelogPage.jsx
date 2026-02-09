@@ -5,7 +5,7 @@ export default function ChangelogPage() {
     //0.0.3
     {
       version: "0.0.3",
-      date: "2025-01-09",
+      date: "2026-01-25",
       changes: [
         "[GAME] StrikeVent NET Development Finished (Release Soon)",
       ],

@@ -9,7 +9,7 @@ const posts = [
   {
     id: "devblog-04",
     slug: "networking",
-    date: "2026-01-07",
+    date: "2026-01-25",
     tag: "DEVLOG",
     title: "Devblog #04 — StrikeVent NET Alpha Complete",
     summary:
