@@ -3,7 +3,13 @@ export default function ChangelogPage() {
   const entries = [
 
     //0.0.3
-
+    {
+      version: "0.0.3",
+      date: "2025-01-09",
+      changes: [
+        "[GAME] StrikeVent NET Development Finished (Release Soon)",
+      ],
+    },
     //0.0.2
     {
       version: "0.0.2",

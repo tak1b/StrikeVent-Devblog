@@ -5,6 +5,21 @@
 
 const posts = [
 
+  //Devblog-04
+  {
+    id: "devblog-04",
+    slug: "networking",
+    date: "2026-01-07",
+    tag: "DEVLOG",
+    title: "Devblog #04 — StrikeVent NET Alpha Complete",
+    summary:
+      "StikeVent NET alpha development completed",
+    body: `Hello guys, we are proud to announce that StrikeVent NET alpha is now complete. Once our project is completed we will release it to the public.
+    It's been a very long process in the making. Sorry that we can't release right now but just one more month and it will be ready for the public.
+    
+  Thats all for now folks, take care.`,
+    image: "/images/devblog-03/happy-cat.jpg",
+  },
 
   //Devblog-03
   {
