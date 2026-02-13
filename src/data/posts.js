@@ -5,6 +5,41 @@
 
 const posts = [
 
+  //Deblog-05
+  {
+    id: "devlog-005",
+    slug: "devlog-3-test-gameplay-combat-and-knockback",
+    date: "2026-02-1",
+    tag: "UPDATE",
+    title: "Devlog #5 — Test Gameplay: Combat and Knockback",
+    summary:
+      "First look at real gameplay footage. Movement, attacks, knockback, and the HUD all running in-engine.",
+    body: `We've got actual gameplay running. This is the first time everything is working together in a real match scenario, and it's a huge step up from where we were at in the last devlog.
+
+## What's Working
+
+The core gameplay loop is fully functional now. Both fighters load in, the round timer counts down, and you can move, jump, attack, and take hits. The big one for us this update is **knockback**. When you land a hit, the opponent actually gets pushed back. It sounds basic but getting that to feel right took a lot of tuning. The knockback force, hitstun duration, and recovery frames all had to line up so that hits feel impactful without being unfair.
+
+## The Fighter System
+
+Each character runs on a finite state machine that handles transitions between idle, running, jumping, attacking, defending, getting hit, and death. We've got three different attack types right now, each with their own startup frames, active frames, and recovery frames. The frame data matters because it determines what's punishable and what's safe on block.
+
+Movement uses integer math under the hood to keep things deterministic. This is important for when we get the online netcode synced up properly. No floating point means no desync between two machines. Positions, velocities, knockback forces, all stored as integers.
+
+## HUD and Match Flow
+
+The health bars, player names, and round timer are all hooked up and working. Timer counts down from 90 seconds, and if it hits zero, whoever has more health wins. Health bars drain when you take damage and blocking reduces incoming damage by 75%.
+
+## What's Next
+
+The netcode is connected and the two instances can find each other, but we're still working on getting the input sync fully dialed in so both players can control their fighters online. That's the next big milestone. Once that clicks, we'll have real online matches running with rollback netcode.
+
+We're also looking at adding more visual feedback for hits. Right now you can see the knockback and the hurt animation, but we want to add things like hitstop (that brief freeze frame when a hit connects) and maybe some particle effects down the line.
+
+More updates soon.`,
+    image: "/images/devlog-05/strikevent.gif",
+  },
+
   //Devlog-04
   {
     id: "devlog-04",

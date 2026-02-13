@@ -2,27 +2,42 @@ export default function ChangelogPage() {
   // Add your changelog entries here
   const entries = [
 
+    //0.0.4
+    {
+      version: "v0.0.4",
+      date: "2026-02-13",
+      changes: [
+        "[GAME] Test gameplay working: movement, jumping, attacks, knockback",
+        "[GAME] Fighter FSM with 9 states (idle, run, jump, attack x3, defend, hurt, death)",
+        "[GAME] HUD implemented: health bars, player names, round timer",
+        "[GAME] Integer-based physics for deterministic simulation",
+        "[GAME] Block mechanic reduces damage by 75%",
+        "[GAME] P2P connection established via StrikeVentNet (input sync WIP)",
+      ],
+    },
+
     //0.0.3
     {
-      version: "0.0.3",
+      version: "v0.0.3",
       date: "2026-01-25",
       changes: [
         "[GAME] StrikeVent NET Development Finished (Release Soon)",
       ],
     },
+    
     //0.0.2
     {
-      version: "0.0.2",
+      version: "v0.0.2",
       date: "2025-10-21",
       changes: [
-        "[GAME] Project Approvedn by Supervisor",
+        "[GAME] Project Approved by Supervisor",
         "[GAME] Purpouse shifted from \"Player Psychology\" to \"Improving Netcode\" ",
       ],
     },
 
     //0.0.1
     {
-      version: "0.0.1",
+      version: "v0.0.1",
       date: "2025-10-15",
       changes: [
         "[GAME] Initial project setup",
