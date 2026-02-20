@@ -1,7 +1,34 @@
 export default function ChangelogPage() {
   // Add your changelog entries here
   const entries = [
-
+    //1.0.0
+    {
+      version: "1.0.0",
+      date: "2026-02-19",
+      changes: [
+        "[Netcode] GGPO rollback netcode fully integrated via C++ GDExtension",
+        "[Netcode] Loopback UDP bridge tunnelling GGPO packets through EOS P2P relay",
+        "[Netcode] Input delay fallback mode when GGPO is unavailable",
+        "[Netcode] Timesync handling (sleep frames_ahead * 16ms)",
+        "[Netcode] Disconnect detection with 3000ms timeout",
+        "[Netcode] Dynamic port assignment for same-machine testing (17777/17778 host, 17779/17780 joiner)",
+        "[Online] Epic Online Services integration with anonymous device authentication",
+        "[Online] EOSGMultiplayerPeer host/join connection flow via PUID",
+        "[Online] NAT traversal and relay handled transparently by EOS",
+        "[Online] Cross-network play tested and confirmed working",
+        "[Game] Complete state serialisation for rollback (12 variables per fighter)",
+        "[Game] Integer math for deterministic simulation (positions/velocities * 100)",
+        "[Build] StrikeVentNet C++ GDExtension compiled with SCons + godot-cpp + GGPO.lib",
+        "[Build] CMake policy fix for GGPO build on modern CMake (3.28+)",
+        "[Build] GGPO.dll runtime dependency included in export",
+        "[Docs] Technical manual written (8 sections, full API reference)",
+        "[Docs] User manual written",
+        "[Docs] System architecture diagram (UML-style)",
+        "[Docs] Demo preparation document with presentation script",
+        "[Docs] Video script for project demo recording",
+        "[Site] Devlog #6 published",
+      ],
+    },
     //0.0.4
     {
       version: "v0.0.4",

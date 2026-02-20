@@ -5,13 +5,108 @@
 
 const posts = [
 
+  {
+    id: "devlog-006",
+    slug: "devlog-6-rollback-netcode-is-live",
+    date: "2026-02-19",
+    tag: "UPDATE",
+    title: "Devlog #06 - Rollback Netcode Is Live",
+    summary:
+      "GGPO rollback netcode running over EOS peer-to-peer relay. Cross-network online matches are working. Here's how we pulled it off.",
+    body: `This is it. The big one. GGPO rollback netcode is fully integrated and running over Epic Online Services peer-to-peer relay.
+     Two players on completely different networks can fight each other with responsive, low-latency controls and the game corrects any mispredictions automatically through rollback.
+      This is what we've been working towards since the start of the project and it's finally done.
+
+## The Problem We Had to Solve
+
+GGPO is the industry standard for fighting game netcode. It was made by Tony Cannon back in 2009 and it's what powers games like Skullgirls, Guilty Gear Strive, and Street Fighter. 
+The problem is GGPO was designed for raw UDP sockets with direct IP connections. It literally calls bind() and sendto() on a real socket. 
+But we're using EOS for our multiplayer which is relay based, meaning there's no raw socket and no direct IP. 
+EOS handles all the NAT traversal and relay stuff through their servers behind the scenes. 
+Godot also has zero built in GGPO support. So we had to figure out how to make these two things talk to each other.
+
+## The Loopback Bridge
+
+This is the solution we came up with and honestly it's the part of the project we're most proud of. 
+GGPO binds a UDP socket on localhost port 17777 and sends its sync packets to localhost port 17778. 
+These are real UDP packets but they never leave the machine because it's all on the loopback interface. 
+We created a Godot PacketPeerUDP socket that binds to port 17778 and catches every packet GGPO sends out. 
+Then every frame we drain that socket and forward the raw bytes to the other player through an unreliable RPC call over the EOS connection.
+
+When packets come back from the other player through EOS, we inject them into port 17777 where GGPO is listening. 
+The critical detail that took us ages to figure out is that we reuse the same socket for capture and injection. 
+The capture socket is bound to port 17778, so when it sends a packet the source address is 127.0.0.1:17778 which is exactly what GGPO expects. 
+If the source port was wrong GGPO would silently drop everything. One line of code makes it all work: \`inject_socket = capture_socket\`.
+
+GGPO has absolutely no idea its packets are going across the internet through EOS relay servers. It thinks it's talking to a local UDP peer on the same machine. 
+And we didn't modify a single line of GGPO's source code to make this happen.
+
+## The C++ GDExtension
+
+Since GGPO is a C library and Godot uses GDScript, we needed a bridge between the two. 
+We wrote a C++ GDExtension module called StrikeVentNet that wraps GGPO's session management, input synchronisation, and callback system. 
+GGPO uses C function pointer callbacks internally, so we use a singleton pattern where the static callback accesses the instance and emits a Godot signal. 
+When GGPO calls on_save_game_state for example, our C++ code emits a signal and GDScript picks it up and handles the serialisation.
+
+Building this involved compiling GGPO from source with CMake (which needed a compatibility flag because the CMakeLists is from 2009), 
+setting up godot-cpp bindings, writing the wrapper code, and compiling it all with SCons. The output is a DLL that Godot loads as a GDExtension at runtime.
+
+## State Serialisation and Determinism
+
+For rollback to work, GGPO needs to be able to save and restore the entire game state instantly. 
+Every frame it saves a snapshot, and when it detects a misprediction it restores a previous snapshot and replays frames with the correct input. 
+All of this has to be deterministic, meaning both machines produce identical results from identical inputs.
+
+We serialise every gameplay-affecting variable for both fighters: positions, velocities, health, FSM state, state timer, facing direction, alive flag, and attack hit flag. 
+Positions and velocities are multiplied by 100 and stored as integers to avoid floating point non-determinism. 
+The game constants like MOVE_SPEED, JUMP_VELOCITY, and GRAVITY are all integers too. We use Godot's var_to_bytes and bytes_to_var for the serialisation which keeps it simple.
+
+There's still a known issue with Godot's move_and_slide() which uses floats internally for collision resolution. 
+This can cause minor position desyncs over long sessions. The full fix would be a custom fixed point physics system which we've identified as future work.
+
+## Testing
+
+We tested same-machine first by running two instances on one PC, one from the editor and one from an exported build. 
+The host uses ports 17777/17778 and the joiner uses 17779/17780 to avoid collisions. 
+Then we tested cross-network with two separate PCs on different networks, one on a home connection and one on a mobile hotspot. 
+EOS relay handled the different NAT environments and GGPO packets flowed through the bridge at 12 to 33 bytes each. 
+Controls were responsive and rollback corrections were barely noticeable.
+
+## What Changed Since Last Devlog
+
+Since Devlog #3 where we had local combat working, here's what we added:
+
+- Full EOS integration with anonymous device-based authentication
+- EOSGMultiplayerPeer for host/join connection flow
+- The StrikeVentNet C++ GDExtension module wrapping GGPO
+- The loopback UDP bridge for tunnelling GGPO through EOS
+- GGPO rollback game loop with save/load/replay
+- Complete state serialisation with integer math for determinism
+- Input delay fallback mode when GGPO is unavailable
+- Dynamic port assignment for same-machine testing
+- Timesync handling to keep both players in step
+- Disconnect detection with 3 second timeout
+
+## What's Next
+
+The core game is feature complete for the thesis demo. 
+Future work includes replacing move_and_slide with fixed point physics for full determinism, adding a lobby system so players don't have to manually share PUIDs, 
+spectator mode (which GGPO supports natively), and automated desync detection using checksums on state snapshots.
+
+This has been an insane project to work on. Going from "what if we made a fighting game" to actually having rollback netcode running over a relay service without modifying 
+GGPO at all was a journey. The loopback bridge is probably four lines of actual socket code but figuring out those four lines took a lot of trial and error.
+
+Thank you for reading!`,
+    image: "",
+  },
+
   //Deblog-05
   {
     id: "devlog-005",
-    slug: "devlog-3-test-gameplay-combat-and-knockback",
+    slug: "devlog-5-test-gameplay-combat-and-knockback",
     date: "2026-02-1",
     tag: "UPDATE",
-    title: "Devlog #5 — Test Gameplay: Combat and Knockback",
+    title: "Devlog #05 — Test Gameplay: Combat and Knockback",
     summary:
       "First look at real gameplay footage. Movement, attacks, knockback, and the HUD all running in-engine.",
     body: `We've got actual gameplay running. This is the first time everything is working together in a real match scenario, and it's a huge step up from where we were at in the last devlog.
